@@ -26,4 +26,4 @@ class Car(models.Model):
 # Depois, usar o comando python manage.py migrate, que vai varrer a aplicação, procurando os arquivos migrations e aplica atravez do ORM do django para o BD
 
     def __str__(self):
-        return f'{self.brand} {self.model}'
+        return f'{self.model}'
