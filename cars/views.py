@@ -1,9 +1,12 @@
 from django.shortcuts import render
+from cars.models import Car
 
 # Create your views here.
 def cars_view(request):
+    cars = Car.objects.all() # Busca os dados no bd
+
     return render(
                 request,
-                template_name='cars.html', 
-                context={'cars': {'model':'Civic 1.7'}}
+                'cars.html', 
+                {'cars': cars}
                 )
