@@ -49,7 +49,7 @@
     }
 
     nav ul li a {
-        color: #929292;
+        color: #a8a8a8;
         text-decoration: none;
         font-size: 16px;
         padding: 15px;
@@ -63,11 +63,11 @@
     }
 
     nav ul li.active a {
-        background-color: #666;
+        background-color: #161616;
     }
 
     nav ul li.active a:hover {
-        background-color: #999;
+        background-color: #161616;
     }
 
   </style>
@@ -76,7 +76,8 @@
   <header>
     <nav>
       <ul>
-        <li><a href="{% url 'cars_list' %}">Carros</a></li>
+        <li><a href="{% url 'cars_list' %}">Lista de Carros</a></li>
+        <li><a href="{% url 'new_car' %}">Cadastrar Carro</a></li>
       </ul>
     </nav>
   </header>
