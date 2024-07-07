@@ -13,7 +13,7 @@ class CarModelForm(forms.ModelForm):
         if value < 10000:
             self.add_error('value', 'Valor mínimo do carro deve ser de R$10.000')
         return value
-    
+
 
     def clean_factory_year(self):
         year = self.cleaned_data.get('factory_year')
