@@ -21,7 +21,7 @@ def cars_view(request):
 
 def new_car_view(request):
     if request.method == 'POST':
-        new_car_form = CarModelForm(request.POST, request.FILES) #Para pegar os dados da requisição
+        new_car_form = CarModelForm(request.POST, request.FILES) # Para pegar os dados da requisição
         if new_car_form.is_valid():
             new_car_form.save()
             return redirect('cars_list')
