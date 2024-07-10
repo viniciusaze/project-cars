@@ -23,21 +23,6 @@ class CarsView(View):
                 )
 
 
-def new_car_view(request):
-    if request.method == 'POST':
-        new_car_form = CarModelForm(request.POST, request.FILES) # Para pegar os dados da requisição
-        if new_car_form.is_valid():
-            new_car_form.save()
-            return redirect('cars_list')
-    else:
-        new_car_form = CarModelForm()
-    return render(
-                request,
-                'new_car.html',
-                {'new_car_form': new_car_form }
-                )
-
-
 class NewCarView(View):
     
     def get(self, request):
