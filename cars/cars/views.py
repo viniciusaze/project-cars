@@ -1,19 +1,22 @@
 from django.shortcuts import render, redirect
 from cars.models import Car
 from cars.forms import CarModelForm
+from django.views import View
 
 
 # Create your views here.
-def cars_view(request):
-    cars = Car.objects.all().order_by('model') 
-    # Busca todos os dados no bd
-    search = request.GET.get('search')
+class CarsView(View):
 
-    if search:
-        cars = Car.objects.filter(model__icontains=search)
-        # Busca os dados no bd com filtro
+    def get(self, request):
+        cars = Car.objects.all().order_by('brand') 
+        # Busca todos os dados no bd
+        search = request.GET.get('search')
 
-    return render(
+        if search:
+            cars = Car.objects.filter(model__icontains=search)
+            # Busca os dados no bd com filtro
+
+        return render(
                 request,
                 'cars.html', 
                 {'cars': cars}
@@ -33,3 +36,5 @@ def new_car_view(request):
                 'new_car.html',
                 {'new_car_form': new_car_form }
                 )
+
+
