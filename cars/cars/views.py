@@ -38,3 +38,23 @@ def new_car_view(request):
                 )
 
 
+class NewCarView(View):
+    
+    def get(self, request):
+        new_car_form = CarModelForm
+        return render(
+                request,
+                'new_car.html',
+                {'new_car_form': new_car_form }
+                )
+    
+    def post(self, request):
+        new_car_form = CarModelForm(request.POST, request.FILES)
+        if new_car_form.is_valid():
+            new_car_form.save()
+            return redirect('cars_list')
+        return render(
+                request,
+                'new_car.html',
+                {'new_car_form': new_car_form }
+                )
