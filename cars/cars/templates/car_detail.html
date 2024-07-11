@@ -58,7 +58,7 @@
         }
 
         .btn:hover{
-            background-color: #6e6e6e;
+            background-color: #b93d3d;
         }
 
         .btn-danger {
@@ -89,6 +89,8 @@
         <p><strong>Placa:</strong>{{ object.plate}}</p>
         <p><strong>Valor:</strong>R$ {{ object.value}}</p>
     </div>
-
+    <div class="buttons-container">
+        <a href="{% url 'car_update' pk=object.pk %}" class="btn btn-primary">Editar carro</a>
+    </div>
 
 {% endblock %}
