@@ -46,7 +46,7 @@
 
         .btn {
             display: inline-block;
-            background-color: #860101;
+            background-color: #4E0000;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -58,20 +58,20 @@
         }
 
         .btn:hover{
-            background-color: #b93d3d;
+            background-color: #d80505;
         }
 
         .btn-danger {
-            background-color: #b93d3d;
+            background-color: #d80505;
             text-decoration: none !important;
         }
 
         .btn-danger:hover{
-            background-color: #bd0202;
+            background-color: #d80505;
         }
 
         .error-message {
-            color: #b93d3d;
+            color: #d80505;
             font-size: 14px;
             margin-top: 5px;
         }
@@ -89,9 +89,11 @@
         <p><strong>Placa:</strong>{{ object.plate}}</p>
         <p><strong>Valor:</strong>R$ {{ object.value}}</p>
     </div>
+    {% if user.is_authenticated %}
     <div class="buttons-container">
         <a href="{% url 'car_update' pk=object.pk %}" class="btn btn-primary">Editar Carro</a>
         <a href="{% url 'car_delete' pk=object.pk %}" class="btn btn-primary">Deletar Carro</a>
     </div>
+    {% endif %}
 
 {% endblock %}
