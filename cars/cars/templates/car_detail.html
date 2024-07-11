@@ -90,7 +90,8 @@
         <p><strong>Valor:</strong>R$ {{ object.value}}</p>
     </div>
     <div class="buttons-container">
-        <a href="{% url 'car_update' pk=object.pk %}" class="btn btn-primary">Editar carro</a>
+        <a href="{% url 'car_update' pk=object.pk %}" class="btn btn-primary">Editar Carro</a>
+        <a href="{% url 'car_delete' pk=object.pk %}" class="btn btn-primary">Deletar Carro</a>
     </div>
 
 {% endblock %}
