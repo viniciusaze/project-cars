@@ -2,6 +2,7 @@ from django.db.models.signals import pre_save, pre_delete, post_save, post_delet
 from django.dispatch import receiver
 from cars.models import Car
 
+# Incluindo os signals
 
 @receiver(pre_save, sender=Car)
 def car_pre_save(sender, instance, **kwargs):
