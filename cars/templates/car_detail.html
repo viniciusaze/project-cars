@@ -10,7 +10,7 @@
             text-align: center;
             transition: all 0.3s ease;
             max-width: 1200px;
-            height: 853px;
+            height: auto;
             margin: 10px auto;
             margin-bottom: 20px;
         }
@@ -18,7 +18,6 @@
         .car-card:hover {
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            transform: scale(1.01);
         }
 
         .car-card img {
@@ -84,10 +83,13 @@
     <div class="car-card">
         <img src="{{ object.photo.url }}" alt="{{ object.model }} - {{ object.brand }}">
         <h2>{{ object.brand }} {{ object.model }}</h2>
-        <p><strong>Ano de Fabricação:</strong>{{ object.factory_year}}</p>
-        <p><strong>Ano do Modelo:</strong>{{ object.model_year}}</p>
-        <p><strong>Placa:</strong>{{ object.plate}}</p>
-        <p><strong>Valor:</strong>R$ {{ object.value}}</p>
+        <p><strong>Ano de Fabricação:</strong>{{ object.factory_year }}</p>
+        <p><strong>Ano do Modelo:</strong>{{ object.model_year }}</p>
+        <p><strong>Placa:</strong>{{ object.plate }}</p>
+        <p><strong>Valor:</strong> R$ {{ object.value }}</p>
+        {% if object.bio %}
+        <p><strong>Descrição:</strong> <br> {{ object.bio }}</p>
+        {% endif %}
     </div>
     {% if user.is_authenticated %}
     <div class="buttons-container">
