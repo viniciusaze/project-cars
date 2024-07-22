@@ -19,9 +19,10 @@ def car_inventory_update():
 
 # Incluindo os signals
 @receiver(pre_save, sender=Car)
-def car_create_bio(sender, instance, **kwargs):
+def car_pre_save(sender, instance, **kwargs):
     if not instance.bio:
-        instance.bio = 'Bio gerada automaticamente'
+        instance.bio = f''' O usuário não informou descrição para o carro
+        {instance.brand} {instance.model} - {instance.model_year}'''
 
 @receiver(post_save, sender=Car)
 def car_post_save(sender, instance, **kwargs):
