@@ -19,7 +19,7 @@ class Car(models.Model):
     model_year = models.IntegerField(blank=True, null=True)
     plate = models.CharField(max_length=10, blank=True, null=True)
     value = models.FloatField(blank=True, null=True)
-    photo = models.ImageField(upload_to='cars/', blank=True, null=True)
+    photo = models.ImageField(upload_to='cars/', blank=True, null=True, default='cars/default.jpg')
     bio = models.TextField(blank=True, null=True)
 
 # Após criar, usar o comando python manage.py makemigrations, criar o script para o banco de dados
