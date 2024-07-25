@@ -22,9 +22,6 @@ class Car(models.Model):
     photo = models.ImageField(upload_to='cars/', blank=True, null=True, default='cars/default.jpg')
     bio = models.TextField(blank=True, null=True)
 
-# Após criar, usar o comando python manage.py makemigrations, criar o script para o banco de dados
-
-# Depois, usar o comando python manage.py migrate, que vai varrer a aplicação, procurando os arquivos migrations e aplica atravez do ORM do django para o BD
 
     def __str__(self):
         return self.model
@@ -34,6 +31,7 @@ class CarInventory(models.Model):
     cars_count = models.IntegerField()
     cars_value = models.FloatField()
     created_at = models.DateTimeField(auto_now_add=True)
+
 
     class Meta:
         ordering = ['-created_at'] # Ordenando por data de forma decrescente
