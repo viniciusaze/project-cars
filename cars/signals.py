@@ -17,6 +17,12 @@ def car_inventory_update():
     )
 
 
+def limit_car_inventory():
+    max_objects = 200
+    if CarInventory.objects.count() > max_objects:
+        oldest_object = CarInventory.objects.order_by('created_at').first()
+        oldest_object.delete()
+
 # Incluindo os signals
 @receiver(pre_save, sender=Car)
 def car_pre_save(sender, instance, **kwargs):
@@ -27,7 +33,9 @@ def car_pre_save(sender, instance, **kwargs):
 @receiver(post_save, sender=Car)
 def car_post_save(sender, instance, **kwargs):
     car_inventory_update()
+    limit_car_inventory()
 
 @receiver(post_delete, sender=Car)
 def car_post_delete(sender, instance, **kwargs):
     car_inventory_update()
+    limit_car_inventory()
